@@ -10,12 +10,13 @@ namespace PrimeNumberDetector
     {
         static bool IsPrime(int num)
         {
-            if (num < 1) 
+            if (num < 2)
                 return false;
-            var digits = new List<int>() {2, 3, 4, 5, 6, 7, 8, 9};
-            foreach(int digit in digits)
+
+            int sqrt = (int)Math.Sqrt(num);
+            for (int i = 2; i <= sqrt; i++)
             {
-                if (num % digit == 0 && digit != num)
+                if (num % i == 0)
                     return false;
             }
             return true;
